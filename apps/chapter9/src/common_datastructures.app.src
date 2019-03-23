@@ -1,0 +1,12 @@
+{application, common_datastructures,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { common_datastructures_app, []}},
+  {env, []}
+ ]}.

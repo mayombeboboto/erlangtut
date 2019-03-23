@@ -1,0 +1,66 @@
+=== Suite started at 2019-03-23 16:52:03
+=== Starting test, 1 test cases
+=cases         1
+=user          ericson
+=host          ericson-Aspire-ES1-572
+=hosts         ericson-Aspire-ES1-572 
+=emulator_vsn  9.2
+=emulator      beam
+=otp_release   20
+=started       2019-03-23 16:52:03
+=case          ct_framework:init_per_suite
+=logfile       ct_framework.init_per_suite.html
+=group_props   [{suite,state_SUITE}]
+=started       2019-03-23 16:52:03
+=ended         2019-03-23 16:52:03
+=result        ok
+=elapsed       0.0
+=case          state_SUITE:ets_tests
+=logfile       state_suite.ets_tests.html
+=started       2019-03-23 16:52:03
+=ended         2019-03-23 16:52:03
+=result        failed: {undef,
+                           [{state_SUITE,ets_tests,
+                                [[{table,#Ref<0.1821108357.1348075523.14091>},
+                                  {watchdog,<0.130.0>},
+                                  {tc_logfile,
+                                      "/home/ericson/erlang_big/apps/chapter28/test/demo/ct_run.ct@ericson-Aspire-ES1-572.2019-03-23_16.52.02/test.demo.state_SUITE.logs/run.2019-03-23_16.52.03/state_suite.ets_tests.html"},
+                                  {tc_group_properties,[{suite,state_SUITE}]},
+                                  {tc_group_path,[]},
+                                  {data_dir,
+                                      "/home/ericson/erlang_big/apps/chapter28/test/demo/state_SUITE_data/"},
+                                  {priv_dir,
+                                      "/home/ericson/erlang_big/apps/chapter28/test/demo/ct_run.ct@ericson-Aspire-ES1-572.2019-03-23_16.52.02/test.demo.state_SUITE.logs/run.2019-03-23_16.52.03/log_private/"}]],
+                                []},
+                            {test_server,ts_tc,3,
+                                [{file,"test_server.erl"},{line,1546}]},
+                            {test_server,run_test_case_eval1,6,
+                                [{file,"test_server.erl"},{line,1062}]},
+                            {test_server,run_test_case_eval,9,
+                                [{file,"test_server.erl"},{line,994}]}]}, [{state_SUITE,
+                                                                            ets_tests},
+                                                                           {test_server,
+                                                                            ts_tc,
+                                                                            1546},
+                                                                           {test_server,
+                                                                            run_test_case_eval1,
+                                                                            1062},
+                                                                           {test_server,
+                                                                            run_test_case_eval,
+                                                                            994}]
+=== *** FAILED test case 1 of 1 ***
+=case          ct_framework:end_per_suite
+=logfile       ct_framework.end_per_suite.html
+=group_props   [{suite,state_SUITE}]
+=started       2019-03-23 16:52:03
+=ended         2019-03-23 16:52:03
+=result        ok
+=elapsed       0.0
+=group_time    0.063s
+=== TEST COMPLETE, 0 ok, 1 failed of 1 test cases
+
+=finished      2019-03-23 16:52:03
+=failed        1
+=successful    0
+=user_skipped  0
+=auto_skipped  0

@@ -1,0 +1,12 @@
+{application, exception_handling,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { exception_handling_app, []}},
+  {env, []}
+ ]}.

@@ -1,0 +1,12 @@
+{application, chapter8,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { chapter8_app, []}},
+  {env, []}
+ ]}.
