@@ -5,7 +5,7 @@
 %%% @end
 %%% Created :  4 Mar 2019 by ericson_comment <ericson@ericson-Aspire-ES1-572>
 
-%% -module(problem_solving).
+-module(problem_solving).
 -compile(export_all).
 
 rpn(L) when is_list(L) ->
