@@ -7,12 +7,7 @@
 
 -module(tokenize).
 
-tokenize(Bin, Token) ->
-    tokenize(Bin, Token, []).
-
-tokenize(<<>>, _Token, Acc) ->
-    Acc;
-tokenize() ->
+%% To be continued!
 
 
 
