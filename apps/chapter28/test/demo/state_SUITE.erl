@@ -1,5 +1,4 @@
 -module(state_SUITE).
-
 -include_lib("common_test/include/ct.hrl").
 
 -export([all/0, end_per_testcase/2, init_per_testcase/2]).

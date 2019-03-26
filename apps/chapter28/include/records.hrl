@@ -1,0 +1,1 @@
+-record(bookings, {projector, room, chairs}).
