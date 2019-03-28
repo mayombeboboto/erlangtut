@@ -6,7 +6,7 @@
 %%% Created :  4 Mar 2019 by ericson_comment <ericson@ericson-Aspire-ES1-572>
 
 -module(exceptions).
--compile([export_all]).
+-export([black_knight/1, whoa/0, im_impressed/0, sword/1]).
 
 sword(1) -> throw(slice);
 sword(2) -> erlang:error(cut_arm);
@@ -27,8 +27,8 @@ black_knight(Attack) when is_function(Attack, 0) ->
 whoa() ->
     try
 	talk(),
-	_Knight = "None shall pass!",
-	_Doubles = [N*2 || N <- lists:seq(1,100)],
+	% _Knight = "None shall pass!",
+	% _Doubles = [N*2 || N <- lists:seq(1,100)],
 	throw(up),
 	_WillReturnThis = tequila
     of
@@ -40,10 +40,10 @@ whoa() ->
 im_impressed() ->
     try
 	talk(),
-	_Knight = "None shall pass!",
-	_Doubles = [N*2 || N <- lists:seq(1,100)],
-	throw(up),
-	_WillReturnThis = tequila
+	% _Knight = "None shall pass!",
+	% _Doubles = [N*2 || N <- lists:seq(1,100)],
+	throw(up)
+	% _WillReturnThis = tequila
     catch
 	Exception:Reason -> {caught, Exception, Reason}
     end.

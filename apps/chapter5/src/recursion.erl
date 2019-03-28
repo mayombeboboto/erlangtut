@@ -6,7 +6,7 @@
 %%% Created :  1 Mar 2019 by ericson_comment <ericson@ericson-Aspire-ES1-572>
 
 -module(recursion).
--compile(export_all).
+-export([len/1, tail_len/1, fac/1, tail_fac/2, duplicate/2]).
 
 
 len([]) -> 0;
@@ -35,11 +35,3 @@ duplicate(1, V) ->
 duplicate(N, V) ->
     [V | duplicate(N - 1, V)].
 
-a() ->
-    b().
-
-b() ->
-    c().
-
-c() ->
-   a().

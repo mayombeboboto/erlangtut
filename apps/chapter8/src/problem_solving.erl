@@ -6,7 +6,7 @@
 %%% Created :  4 Mar 2019 by ericson_comment <ericson@ericson-Aspire-ES1-572>
 
 -module(problem_solving).
--compile(export_all).
+-export([rpn/1, read/1]).
 
 rpn(L) when is_list(L) ->
     [Res] = lists:foldl(fun rpn/2, [], string:tokens(L, " ")),

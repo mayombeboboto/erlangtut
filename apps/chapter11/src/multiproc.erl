@@ -1,5 +1,5 @@
 -module(multiproc).
--compile(export_all).
+-export([sleep/1, flush/0, important/0, normal/0]).
 
 sleep(T) ->
     receive
