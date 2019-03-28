@@ -1,0 +1,12 @@
+{application, concurrent_app,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { concurrent_app_app, []}},
+  {env, []}
+ ]}.

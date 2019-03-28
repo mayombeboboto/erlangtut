@@ -1,22 +1,23 @@
 -module(linkmon).
--export([start_critic/0, judge/ 2, critic/0, restarter/0, chain/1, myproc/0]).
+-export([start_critic/0, judge/2, critic/0, restarter/0, chain/1, myproc/0]).
 
 start_critic() ->
-    spawn(?MODULE, critic, []).
+    spawn(?MODULE, restarter, []).
 
 judge(Band, Album) ->
     Ref = make_ref(),
     critic ! {self(), Ref, {Band, Album}},
     receive
-      {Ref, Criticism} -> Criticism 
-      after 2000 -> timeout
+        {Ref, Criticism} -> Criticism
+    after 2000 ->
+        timeout
     end.
 
 critic() ->
     receive
         {From, Ref, {"Rage Against the Turing Machine", "Unit Testify"}} ->
             From ! {Ref, "They are great!"};
-        {From, Ref, {"System of a Downtime", "Memorize"}} ->
+        {From, Ref, {"System of a Downtime", "Memoize"}} ->
             From ! {Ref, "They're not Johnny Crash but they're good."};
         {From, Ref, {"Johnny Crash", "The Token Ring of Fire"}} ->
             From ! {Ref, "Simply incredible."};
@@ -27,7 +28,7 @@ critic() ->
 
 restarter() ->
     process_flag(trap_exit, true),
-    Pid = spawn_link(trap_exit, true),
+    Pid = spawn_link(linkmon, critic, []),
     register(critic, Pid),
     receive
         {'EXIT', Pid, normal} -> % not a cash
