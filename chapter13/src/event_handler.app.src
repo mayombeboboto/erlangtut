@@ -1,4 +1,4 @@
-{application, recursion,
+{application, event_handler,
  [
   {description, ""},
   {vsn, "1"},
@@ -7,6 +7,6 @@
                   kernel,
                   stdlib
                  ]},
-  {mod, { recursion_app, []}},
+  {mod, { event_handler_app, []}},
   {env, []}
  ]}.

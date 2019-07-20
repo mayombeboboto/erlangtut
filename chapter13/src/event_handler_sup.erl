@@ -1,4 +1,4 @@
--module(chapter8_sup).
+-module(event_handler_sup).
 
 -behaviour(supervisor).
 

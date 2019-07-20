@@ -1,4 +1,4 @@
--module(chapter8_app).
+-module(event_handler_app).
 
 -behaviour(application).
 
@@ -10,7 +10,7 @@
 %% ===================================================================
 
 start(_StartType, _StartArgs) ->
-    chapter8_sup:start_link().
+    event_handler_sup:start_link().
 
 stop(_State) ->
     ok.
