@@ -4,23 +4,43 @@
 %%%
 %%% @end
 %%% Created : 19 Jul 2019 by gradie <gradie@gradie-Aspire-ES1-572>
-
+%%%======================================================================
 -module(event).
--compile(export_all). %% To be fixed.
+%%%======================================================================
+-export([start/2,start_link/2,init/3]). 
+-export([loop/1,cancel/1]).
+%%%======================================================================
 -include_lib("../include/event_handler.hrl").
+%%%======================================================================
+-type year()  :: pos_integer().
+-type month() :: 1..12.
+-type day()   :: 1..31.
+-type hour()  :: 0..23.
+-type minute():: 0..59.
+-type second():: 0..59.
+%%----------------------
+-type date()     :: {year(),month(),day()}.
+-type time()     :: {hour(),minute(),second()}.
+-type datetime() :: {date(),time()}.
+-type name()     :: atom() | string().
+-type record()   :: #{}.
+%%%======================================================================
 
+-spec(start(name(),datetime()) -> pid()).
 start(EventName,Delay) ->
   spawn(?MODULE,init,[self(),EventName,Delay]).
 
+-spec(start_link(name(),datetime()) -> pid()).
 start_link(EventName,Delay) ->
   spawn_link(?MODULE,init,[self(),EventName,Delay]).
 
-%%% event's innards
+-spec(init(name(),pid(),datetime()) -> no_return()).
 init(Server,EventName,Datetime) ->
   loop(#state{ server=Server,name=EventName,to_go=time_to_go(Datetime) }).
 
 %% Loop uses a list for times in order to go around the ~49 days limit
 %% on timeouts.
+-spec(loop(record()) -> {reference(),ok} | {done,name()}).
 loop(S = #state{ server=Server,to_go=[T|Next] }) ->
   receive
     {Server,Ref,cancel} -> Server ! {Ref,ok}
@@ -30,6 +50,7 @@ loop(S = #state{ server=Server,to_go=[T|Next] }) ->
       end
   end.
 
+-spec(cancel(pid) -> ok).
 cancel(Pid) ->
   %% Monitor in case the process is already dead.
   Ref = erlang:monitor(process, Pid),
